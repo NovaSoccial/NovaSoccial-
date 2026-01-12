@@ -3,54 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şafak Vakti | Giriş Yap</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Nova Soccial | Giriş</title>
+    
+    <link rel="stylesheet" href="./style.css">
+    
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="https://via.placeholder.com/192x192/ffffff/000000?text=NS">
+
     <style>
-        /* Giriş sayfasına özel ek stil dokunuşu */
-        #recaptcha-container {
-            margin-top: 10px;
-        }
-        .logo-container {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+        /* Sadece bu sayfaya özel ek sadeleştirmeler */
+        body, html {
+            height: 100%;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-card">
-        <div class="logo-container">
-            <h1 class="logo-text">Nova Soccial</h1>
-            <p style="color: #94a3b8; font-size: 0.9rem;">Güvenli Sosyal Dünya</p>
-        </div>
-
-        <p style="text-align: center; margin-bottom: 20px; font-size: 0.9rem;">Devam etmek için bir yöntem seçin</p>
-
-        <button class="google-btn">
-            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" alt="Google" width="20">
+    <div class="login-container">
+        <h1 class="logo-text">Nova Soccial</h1>
+        
+        <button class="login-btn primary" id="googleLogin">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" width="18" alt="G">
             Google ile Devam Et
         </button>
-
-        <button class="phone-btn">
+        
+        <button class="login-btn" id="phoneLogin">
             📱 Telefon ile Giriş (2FA)
         </button>
 
-        <div id="recaptcha-container"></div>
-
-        <div class="footer-links">
-            <a href="#">Yardım</a> • <a href="#">Gizlilik</a>
+        <div style="margin-top: 30px; color: #8e8e8e; font-size: 13px; letter-spacing: 0.5px;">
+            <span style="cursor:pointer" onclick="window.location.href='./privacy-policy.html'">Gizlilik</span> • 
+            <span style="cursor:pointer" onclick="window.location.href='./terms-of-service.html'">Şartlar</span> • 
+            <span style="cursor:pointer">Yardım</span>
+        </div>
+        
+        <div style="position: fixed; bottom: 20px; font-size: 10px; color: #dbdbdb;">
+            v1.0.4 - Şafak Vakti
         </div>
     </div>
 
-    <script type="module" src="app.js"></script>
+    <script type="module" src="./app.js"></script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./service-worker.js')
+            .then(reg => console.log('Sistem Hazır!'))
+            .catch(err => console.log('SW Hatası:', err));
+        });
+      }
+    </script>
 
 </body>
 </html>
