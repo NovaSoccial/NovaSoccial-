@@ -1,60 +1,44 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// Senin özel Firebase bilgilerin
+// BURAYI KENDİ BİLGİLERİNLE DOLDUR (Fotoğrafta attığın yer)
 const firebaseConfig = {
-  apiKey: "AIzaSyBA1H0C7y4Cbt2ZUBtGRnvu-HgPv8F-iog",
+  apiKey: "AIzaSyBA1H0C7y4Cbt2ZUBtGRnvu-HgPv8F-iog", 
   authDomain: "novasoccial.firebaseapp.com",
-  databaseURL: "https://novasoccial-default-rtdb.firebaseio.com",
   projectId: "novasoccial",
-  storageBucket: "novasoccial.firebasestorage.app",
+storageBucket:novasoccial.firebasestorage.app ,
   messagingSenderId: "680106218526",
   appId: "1:680106218526:web:0edcdbe46ff1c84582ca0f"
 };
 
-// Başlatma
+// Uygulamayı Başlat
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-auth.languageCode = 'tr';
+const googleProvider = new GoogleAuthProvider();
 
-// 1. Google ile Giriş
-async function loginWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    try {
-        const result = await signInWithPopup(auth, provider);
-        alert("Hoş geldin: " + result.user.displayName);
-        window.location.href = "home.html";
-    } catch (error) {
-        alert("Hata: " + error.message);
-    }
-}
-
-// 2. Telefon ile Giriş (SMS / 2FA)
-async function loginWithPhone() {
-    const phoneNumber = prompt("Telefon numaranızı girin (Örn: +90555...):");
-    if (!phoneNumber) return;
-
-    // Görünmez güvenlik kontrolü
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-        'size': 'invisible'
+// 1. GOOGLE GİRİŞİ
+const googleBtn = document.getElementById('googleLogin');
+if(googleBtn) {
+    googleBtn.addEventListener('click', () => {
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                window.location.href = "./home.html"; // Giriş başarılıysa ana sayfaya git
+            }).catch((error) => {
+                alert("Hata: " + error.message);
+            });
     });
-
-    try {
-        const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, window.recaptchaVerifier);
-        const code = prompt("Gelen 6 haneli kodu girin:");
-        const result = await confirmationResult.confirm(code);
-        alert("Telefon doğrulandı! Giriş yapılıyor...");
-        window.location.href = "home.html";
-    } catch (error) {
-        alert("Kod hatalı veya bir sorun oluştu: " + error.message);
-    }
 }
 
-// Butonları Bağla
-document.addEventListener('DOMContentLoaded', () => {
-    const googleBtn = document.querySelector('.google-btn');
-    const phoneBtn = document.querySelector('.phone-btn');
+// 2. TELEFON GİRİŞİ (Basit Başlatıcı)
+const phoneBtn = document.getElementById('phoneLogin');
+if(phoneBtn) {
+    phoneBtn.addEventListener('click', () => {
+        const phoneNumber = prompt("Telefon numaranızı yazın (+90...):");
+        if (phoneNumber) {
+            alert("Telefon giriş sistemi aktif ediliyor, lütfen Firebase panelinden domain izinlerini kontrol edin.");
+            // Telefon doğrulaması için RecaptchaVerifier gereklidir.
+        }
+    });
+}
 
-    if(googleBtn) googleBtn.onclick = loginWithGoogle;
-    if(phoneBtn) phoneBtn.onclick = loginWithPhone;
-});
+console.log("Nova Soccial sistemi hazır.");
