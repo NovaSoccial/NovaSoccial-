@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaSoccial | Mesajlar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: var(--bg-dark);
+        }
+        .chat-header {
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .messages-area {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .msg {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        .msg.sent {
+            align-self: flex-end;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .msg.received {
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-bottom-left-radius: 4px;
+        }
+        .chat-input-area {
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.9);
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        input#messageInput {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 25px;
+            color: white;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <span onclick="window.location.href='home.html'" style="cursor:pointer;">⬅️</span>
+            <div class="post-user-pic" style="width:30px; height:30px;"></div>
+            <span style="font-weight: bold;">@yazilimci_dost</span>
+        </div>
+
+        <div class="messages-area" id="msgArea">
+            <div class="msg received">Selam! NovaSoccial güvenliği nasıl gidiyor?</div>
+            <div class="msg sent">Harika gidiyor, şu an uçtan uca şifrelemeyi kuruyorum. 🛡️</div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="messageInput" placeholder="Mesaj yaz...">
+            <button onclick="sendMessage()" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">🚀</button>
+        </div>
+    </div>
+
+    <script src="crypto-logic.js"></script>
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const area = document.getElementById('msgArea');
+            if(input.value.trim() !== "") {
+                const newMsg = document.createElement('div');
+                newMsg.className = 'msg sent';
+                newMsg.innerText = input.value;
+                area.appendChild(newMsg);
+                input.value = "";
+                area.scrollTop = area.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
