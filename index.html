@@ -3,58 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Soccial | Giriş</title>
-    
+    <title>Nova Soccial</title>
     <link rel="stylesheet" href="./style.css">
-    
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="apple-touch-icon" href="https://via.placeholder.com/192x192/ffffff/000000?text=NS">
-
     <style>
-        /* Sadece bu sayfaya özel ek sadeleştirmeler */
-        body, html {
-            height: 100%;
-            overflow: hidden;
-        }
+        .login-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #fff; text-align: center; }
+        .logo-main { font-size: 36px; font-weight: 800; margin-bottom: 40px; color: #000; letter-spacing: -1px; }
+        .btn-auth { width: 85%; max-width: 320px; padding: 14px; margin: 10px 0; border-radius: 12px; border: 1px solid #dbdbdb; background: #fff; display: flex; align-items: center; justify-content: center; gap: 12px; cursor: pointer; font-weight: 600; font-size: 15px; transition: 0.2s; text-decoration: none; color: #000; }
+        .btn-auth.google { background: #0095f6; color: #fff; border: none; }
+        .footer-links { margin-top: 30px; color: #8e8e8e; font-size: 13px; }
+        .version-tag { position: fixed; bottom: 20px; font-size: 11px; color: #eee; } /* Görünmez hale getirildi */
     </style>
 </head>
 <body>
 
     <div class="login-container">
-        <h1 class="logo-text">Nova Soccial</h1>
-        
-        <button class="login-btn primary" id="googleLogin">
-            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" width="18" alt="G">
+        <div class="logo-main">Nova Soccial</div>
+
+        <button class="btn-auth google" id="googleLogin">
+            <svg width="18" height="18" viewBox="0 0 18 18"><path d="M17.64 8.86c0-.61-.06-1.2-.16-1.76H9v3.34h4.84c-.21 1.12-.84 2.07-1.79 2.7l2.85 2.21c1.67-1.53 2.63-3.79 2.63-6.49z" fill="#fff"/><path d="M9 17.64c2.33 0 4.29-.77 5.71-2.08l-2.85-2.21c-.79.53-1.8.85-2.86.85-2.2 0-4.06-1.49-4.73-3.48L1.34 13.2c1.44 2.85 4.38 4.44 7.66 4.44z" fill="#fff"/><path d="M4.27 10.72c-.17-.51-.27-1.06-.27-1.62s.1-1.11.27-1.62l-3.08-2.39c-.54 1.11-.85 2.34-.85 3.66s.31 2.55.85 3.66l3.08-2.33z" fill="#fff"/><path d="M9 3.58c1.27 0 2.41.44 3.31 1.29l2.48-2.48C13.28.97 11.32 0 9 0 5.72 0 2.78 1.59 1.34 4.44L4.27 6.83c.67-1.99 2.53-3.25 4.73-3.25z" fill="#fff"/></svg>
             Google ile Devam Et
         </button>
-        
-        <button class="login-btn" id="phoneLogin">
-            📱 Telefon ile Giriş (2FA)
+
+        <button class="btn-auth" id="phoneLogin">
+            <span style="font-size: 18px;">📱</span>
+            Telefon ile Giriş (2FA)
         </button>
 
-        <div style="margin-top: 30px; color: #8e8e8e; font-size: 13px; letter-spacing: 0.5px;">
-            <span style="cursor:pointer" onclick="window.location.href='./privacy-policy.html'">Gizlilik</span> • 
-            <span style="cursor:pointer" onclick="window.location.href='./terms-of-service.html'">Şartlar</span> • 
-            <span style="cursor:pointer">Yardım</span>
+        <div class="footer-links">
+            <span>Gizlilik</span> • <span>Şartlar</span> • <span>Yardım</span>
         </div>
-        
-        <div style="position: fixed; bottom: 20px; font-size: 10px; color: #dbdbdb;">
-            v1.0.4 - Şafak Vakti
-        </div>
+
+        <div class="version-tag">v1.0.5 - Nova Core</div>
     </div>
 
     <script type="module" src="./app.js"></script>
-
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('./service-worker.js')
-            .then(reg => console.log('Sistem Hazır!'))
-            .catch(err => console.log('SW Hatası:', err));
-        });
-      }
-    </script>
-
 </body>
 </html>
