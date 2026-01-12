@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gönderi Detayı</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .post-container { margin-top: 20px; border-bottom: 1px solid #1e293b; }
+        .comment-section { padding: 15px; background: #0f172a; }
+        .comment-input-area { position: fixed; bottom: 0; width: 100%; padding: 10px; background: #1e293b; display: flex; }
+        .comment-input { flex: 1; background: #0f172a; border: none; color: white; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div id="postContent"></div>
+    <div class="comment-section" id="commentsList">
+        </div>
+    <div class="comment-input-area">
+        <input type="text" class="comment-input" id="newComment" placeholder="Yorum ekle...">
+        <button onclick="sendComment()" style="background:none; border:none; color:#8b5cf6; font-weight:bold; margin-left:10px;">Paylaş</button>
+    </div>
+</body>
+</html>
