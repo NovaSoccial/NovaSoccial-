@@ -1,13 +1,9 @@
-import { applyTheme } from './theme-manager.js';
+import { watchConnection } from './network-detector.js';
+import { fixLayout } from './ui-fixer.js';
 
-window.addEventListener('online', () => console.log("Çevrimiçi! 🌐"));
-window.addEventListener('offline', () => alert("İnternet bağlantınızı kontrol edin!"));
-
-// Uygulama ilk açıldığında yapılacaklar
-const initApp = () => {
-    console.log("NovaSoccial Sistemleri Başlatılıyor...");
-    const savedTheme = localStorage.getItem('userTheme') || 'dark';
-    applyTheme(savedTheme);
+export const startApp = () => {
+    watchConnection();
+    fixLayout();
+    console.log("Nova Soccial v1.0.5 Başarıyla Yüklendi.");
 };
-
-initApp();
+startApp();
