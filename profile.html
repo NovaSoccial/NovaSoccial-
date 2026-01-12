@@ -3,99 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaSoccial | Profil</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .profile-header {
-            padding: 100px 20px 20px 20px;
-            text-align: center;
-            background: linear-gradient(to bottom, rgba(139, 92, 246, 0.2), transparent);
-        }
-        .profile-pic {
-            width: 100px; height: 100px;
-            border-radius: 50%;
-            border: 3px solid var(--neon-purple);
-            margin-bottom: 15px;
-        }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-        }
-        .stat-item { text-align: center; }
-        .stat-value { font-weight: bold; font-size: 1.2rem; display: block; }
-        .stat-label { font-size: 0.8rem; color: #94a3b8; }
-
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        .btn-follow {
-            padding: 10px 25px;
-            border-radius: 10px;
-            border: none;
-            background: var(--neon-purple);
-            color: white;
-            font-weight: bold;
-        }
-        .btn-msg {
-            padding: 10px 25px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: transparent;
-            color: white;
-        }
-        
-        /* İstek Onaylama Alanı (Sadece Profil Sahibi Görür) */
-        .requests-panel {
-            background: rgba(255, 255, 255, 0.05);
-            margin: 20px;
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px dashed var(--neon-pink);
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
+    <title>Profil | Nova Soccial</title>
 </head>
-<body>
-
+<body class="bg-white">
     <div class="profile-header">
-        <img src="https://via.placeholder.com/100" class="profile-pic">
-        <h2 style="margin: 0;">Kullanıcı Adı</h2>
-        <p style="color: #94a3b8; font-size: 0.9rem;">@nova_user</p>
+        <div class="avatar-wrapper">
+            <img id="profilePic" src="https://via.placeholder.com/150" alt="Profil">
+        </div>
+        <h2 id="displayUserName" class="text-black">Yükleniyor...</h2>
+        <p id="userHandle" class="text-gray">@username</p>
         
-        <div class="stats">
-            <div class="stat-item"><span class="stat-value">120</span><span class="stat-label">Takipçi</span></div>
-            <div class="stat-item"><span class="stat-value">85</span><span class="stat-label">Takip</span></div>
+        <div class="stats-row">
+            <div class="stat-item"><b>120</b><span>Takipçi</span></div>
+            <div class="stat-item"><b>85</b><span>Takip</span></div>
         </div>
 
         <div class="action-buttons">
-            <button class="btn-follow" onclick="handleFollow()">Takip Et</button>
-            <button class="btn-msg" onclick="window.location.href='chat.html'">Mesaj At</button>
+            <button class="btn-primary">Takip Et</button>
+            <button class="btn-secondary">Mesaj At</button>
         </div>
     </div>
 
-    <div class="requests-panel" id="req-panel">
-        <p style="font-size: 0.8rem; margin-bottom: 10px;">🔔 Bekleyen Takip İstekleri</p>
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.9rem;">@yeni_user size istek gönderdi</span>
-            <div>
-                <button style="background: #10b981; border: none; color: white; border-radius: 5px; padding: 5px 10px;">Onayla</button>
-                <button style="background: #ef4444; border: none; color: white; border-radius: 5px; padding: 5px 10px;">Reddet</button>
+    <div class="request-box" id="pendingRequests">
+        <p class="request-title">🔔 Takip İstekleri</p>
+        <div class="request-item">
+            <span>@yeni_user</span>
+            <div class="req-btns">
+                <button class="btn-approve">Onayla</button>
+                <button class="btn-reject">Reddet</button>
             </div>
         </div>
     </div>
-
-    <script>
-        function handleFollow() {
-            const btn = document.querySelector('.btn-follow');
-            if(btn.innerText === "Takip Et") {
-                btn.innerText = "İstek Gönderildi";
-                btn.style.background = "#475569";
-            }
-        }
-    </script>
 </body>
 </html>
