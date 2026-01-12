@@ -3,119 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaSoccial | Secure Entry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Şafak Vakti | Giriş Yap</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --bg-color: #0B0D17;
-            --accent-purple: #8B5CF6;
-            --accent-pink: #EC4899;
-            --glass: rgba(255, 255, 255, 0.05);
+        /* Giriş sayfasına özel ek stil dokunuşu */
+        #recaptcha-container {
+            margin-top: 10px;
         }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top right, #1e1b4b, var(--bg-color));
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            overflow: hidden;
-        }
-
-        .container {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 30px;
-            width: 90%;
-            max-width: 400px;
+        .logo-container {
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
         }
-
-        .logo {
+        .logo-text {
             font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            font-weight: 800;
+            background: linear-gradient(to right, #8b5cf6, #ec4899);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
-        }
-
-        .tagline { font-size: 0.9rem; color: #94a3b8; margin-bottom: 30px; }
-
-        .auth-button {
-            width: 100%;
-            padding: 14px;
-            margin: 10px 0;
-            border-radius: 15px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: 0.3s;
-        }
-
-        .google-btn { background: white; color: #1f2937; }
-        .phone-btn { background: var(--accent-purple); color: white; }
-
-        .divider {
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            color: #475569;
-            font-size: 0.8rem;
-        }
-        .divider::before, .divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #334155;
-            margin: 0 10px;
-        }
-
-        /* Güvenlik Rozeti */
-        .security-badge {
-            margin-top: 20px;
-            font-size: 0.75rem;
-            color: #10b981;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
+            letter-spacing: -1px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo">NovaSoccial</div>
-        <div class="tagline">Geleceğin Güvenli Sosyal Ağı</div>
+    <div class="login-card">
+        <div class="logo-container">
+            <h1 class="logo-text">Nova Soccial</h1>
+            <p style="color: #94a3b8; font-size: 0.9rem;">Güvenli Sosyal Dünya</p>
+        </div>
 
-        <button class="auth-button google-btn">
-            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20">
+        <p style="text-align: center; margin-bottom: 20px; font-size: 0.9rem;">Devam etmek için bir yöntem seçin</p>
+
+        <button class="google-btn">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" alt="Google" width="20">
             Google ile Devam Et
         </button>
 
-        <button class="auth-button phone-btn">
-            📱 Telefon Numarası
+        <button class="phone-btn">
+            📱 Telefon ile Giriş (2FA)
         </button>
 
-        <div class="divider">VEYA</div>
+        <div id="recaptcha-container"></div>
 
-        <p style="font-size: 0.85rem; color: #cbd5e1;">Zaten bir hesabın var mı? <a href="#" style="color: var(--accent-pink); text-decoration: none;">Giriş Yap</a></p>
-        
-        <div class="security-badge">
-            🛡️ 256-bit Uçtan Uca Şifreleme Aktif
+        <div class="footer-links">
+            <a href="#">Yardım</a> • <a href="#">Gizlilik</a>
         </div>
     </div>
+
+    <script type="module" src="app.js"></script>
 
 </body>
 </html>
