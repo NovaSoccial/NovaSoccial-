@@ -1,0 +1,5 @@
+1. firebase login
+2. firebase init hosting
+3. Public directory: . (nokta koy)
+4. Configure as single-page app: Yes
+5. firebase deploy
