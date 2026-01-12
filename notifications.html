@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildirimler</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .notif-item {
+            display: flex; align-items: center;
+            padding: 15px; border-bottom: 1px solid #1e293b;
+        }
+        .notif-img { width: 45px; height: 45px; border-radius: 50%; margin-right: 15px; }
+        .notif-text { font-size: 0.9rem; color: #f1f5f9; }
+        .notif-time { color: #64748b; font-size: 0.75rem; margin-top: 4px; }
+    </style>
+</head>
+<body>
+    <h2 style="padding: 20px;">Bildirimler</h2>
+    <div id="notifList">
+        <div class="notif-item">
+            <img src="https://via.placeholder.com/50" class="notif-img">
+            <div class="notif-text">
+                <b>birisi</b> gönderini beğendi.
+                <div class="notif-time">2 dk önce</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bottom-nav">
+        <span onclick="window.location.href='home.html'">🏠</span>
+        <span onclick="window.location.href='explore.html'">🔍</span>
+        <span onclick="window.location.href='upload.html'">➕</span>
+        <span onclick="window.location.href='notifications.html'" style="color: #ec4899;">🔔</span>
+        <span onclick="window.location.href='profile.html'">👤</span>
+    </div>
+</body>
+</html>
