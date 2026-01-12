@@ -1,0 +1,22 @@
+.msg-row { display: flex; margin-bottom: 10px; width: 100%; }
+.msg-row.me { justify-content: flex-end; }
+
+.bubble {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.msg-row.me .bubble {
+    background: #0095f6;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.msg-row.them .bubble {
+    background: #efefef;
+    color: #262626;
+    border-bottom-left-radius: 4px;
+}
