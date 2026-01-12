@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayarlar</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body style="padding: 20px;">
-    <h2>Ayarlar</h2>
-    <div style="margin-top: 30px;">
-        <div class="setting-item" onclick="alert('Profil düzenleme yakında!')" style="padding: 15px 0; border-bottom: 1px solid #334155;">👤 Profili Düzenle</div>
-        <div class="setting-item" style="padding: 15px 0; border-bottom: 1px solid #334155;">🔒 Gizlilik ve Güvenlik</div>
-        <div class="setting-item" style="padding: 15px 0; border-bottom: 1px solid #334155;">🔔 Bildirim Ayarları</div>
-        <div class="setting-item" id="logoutBtn" style="padding: 15px 0; color: #ef4444; font-weight: bold;">🚪 Çıkış Yap</div>
+<div class="settings-page" style="padding:20px; background:#fff; height:100vh;">
+    <h3 style="margin-bottom:30px;">Ayarlar</h3>
+    <div class="settings-item" style="padding:15px 0; border-bottom:1px solid #efefef; cursor:pointer;">
+        <span>Profili Düzenle</span>
     </div>
-    <script type="module">
-        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        document.getElementById('logoutBtn').onclick = () => {
-            signOut(getAuth()).then(() => window.location.href = "index.html");
-        };
-    </script>
-</body>
-</html>
+    <div class="settings-item" style="padding:15px 0; border-bottom:1px solid #efefef; cursor:pointer;">
+        <span>Bildirim Ayarları</span>
+    </div>
+    <div class="settings-item" id="logoutBtn" style="padding:15px 0; color:#ff3b30; font-weight:600; cursor:pointer;">
+        Oturumu Kapat
+    </div>
+</div>
