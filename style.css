@@ -3,122 +3,77 @@
     --border-gray: #dbdbdb;
     --text-black: #262626;
     --text-gray: #8e8e8e;
-    --accent-blue: #0095f6; /* Apple/Meta mavisi */
-    --soft-gray: #fafafa;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --insta-blue: #0095f6;
 }
 
 body {
     background-color: var(--bg-white);
     color: var(--text-black);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 60px; /* Alt menü için yer */
 }
 
-/* Giriş Sayfası Tasarımı */
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
-    background: var(--bg-white);
-}
-
-.logo-text {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 40px;
-    color: var(--text-black);
-    letter-spacing: -1px;
-}
-
-.login-btn {
-    width: 100%;
-    max-width: 300px;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: 1px solid var(--border-gray);
-    background: var(--bg-white);
-    color: var(--text-black);
-    font-weight: 600;
-    cursor: pointer;
+/* Üst Header */
+.insta-header {
+    height: 44px;
+    border-bottom: 1px solid var(--border-gray);
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: background 0.3s;
+    justify-content: space-between;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 100;
 }
 
-.login-btn:active {
-    background: var(--soft-gray);
-}
-
-.login-btn.primary {
-    background: var(--accent-blue);
-    color: white;
-    border: none;
-}
-
-/* Ana Sayfa ve Akış Tasarımı */
+/* Post Kartı */
 .post-card {
     border-bottom: 1px solid var(--border-gray);
     margin-bottom: 10px;
-    background: white;
 }
 
 .post-header {
-    padding: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 600;
+    padding: 8px 12px;
 }
 
-.user-avatar {
+.post-avatar {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 1px solid var(--border-gray);
+    margin-right: 10px;
+    background: #eee;
 }
 
-.post-content img, .post-content video {
+.post-img {
     width: 100%;
-    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-/* Alt Menü (Sade) */
+.post-actions {
+    padding: 8px 12px;
+    display: flex;
+    gap: 16px;
+    font-size: 24px;
+}
+
+.post-info {
+    padding: 0 12px 12px;
+}
+
+/* Alt Menü */
 .bottom-nav {
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 50px;
-    background: white;
+    background: #fff;
     border-top: 1px solid var(--border-gray);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 1000;
-}
-
-.bottom-nav span {
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--text-black);
-}
-
-/* Input ve Butonlar */
-input[type="text"], textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--border-gray);
-    background: var(--soft-gray);
-    border-radius: 5px;
-    outline: none;
 }
