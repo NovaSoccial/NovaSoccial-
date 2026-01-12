@@ -1,8 +1,9 @@
 {
   "name": "NovaSoccial",
   "short_name": "Nova",
-  "description": "Yeni nesil hibrit sosyal medya platformu",
-  "start_url": "/index.html",
+  "description": "Yeni nesil hibrit sosyal medya",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#8b5cf6",
@@ -10,11 +11,6 @@
     {
       "src": "https://via.placeholder.com/192x192/8b5cf6/ffffff?text=NS",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "https://via.placeholder.com/512x512/8b5cf6/ffffff?text=NovaSoccial",
-      "sizes": "512x512",
       "type": "image/png"
     }
   ]
